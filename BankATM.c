@@ -29,7 +29,7 @@ int main(){
     ch3 = getch();  printf("*");
     ch4 = getch();  printf("*");
 
-    if (ch1 = 'd' && ch2 == 'a' && ch3 == 't' && ch4 == 'a'){ //dummy pin for development
+    if (ch1 == 'd' && ch2 == 'a' && ch3 == 't' && ch4 == 'a'){ //dummy pin for development : data
         
         int choice;
 
@@ -74,13 +74,31 @@ void createacc(){
 }
 
 void depoist(){
-    printf("This is depoist fuction");
+    int amt;
+    printf("Enter an amount for deposit: ");  scanf("%d", &amt);
+
+    if (amt < 0)
+        printf("\nInvaild Amount\n");
+    else{
+        A1.amount = A1.amount + amt;
+        printf("Your Total Amount: %d", A1.amount);
+    }
 }
 
 void withd(){
-    printf("This is withdrawl fuction");
+    int amt;
+    printf("Enter an amount for withdrawl: ");  scanf("%d", &amt);
+
+    if (amt < 0){
+        printf("\nInvaild Amount\n");
+    } else if (amt > A1.amount) {
+        printf("\nInsufficent Balance\n");
+    } else{
+        A1.amount = A1.amount - amt;
+        printf("\nYour Total Amount: %d", A1.amount);
+    }
 }
 
 void balance(){
-    printf("This is balance fuction");
+    printf("\nBalance : %d\n", A1.amount);
 }
