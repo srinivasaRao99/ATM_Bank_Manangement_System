@@ -11,11 +11,13 @@ struct ATM{
 
 struct ATM A1;
 
-void design();
-void createacc();
+void mainMenu();
+void createAccount();
 void depoist();
-void withd();
+void withdrawal();
 void balance();
+void displayAccount();
+
 
 int main(){
     clrscr();
@@ -34,16 +36,16 @@ int main(){
         int choice;
 
         do{
-            design();
+            mainMenu();
             printf("\n Enter your choice: ");
             scanf("%d", &choice);
 
             switch(choice){
-                case 1  : createacc();  break;
+                case 1  : createAccount();  break;
                 case 2  : depoist();    break;
-                case 3  : withd();      break;
+                case 3  : withdrawal();      break;
                 case 4  : balance();    break;
-                case 5  : break;        //exit(0);
+                case 5  : displayAccount();break;        //exit(0);
                 default : printf("Invalid Choice \n");
             }
         }while(choice != 5);
@@ -67,7 +69,7 @@ void design (){
     printf("\n-------------------------------------");
 }
 
-void createacc(){
+void createAccount(){
     printf("Enter Account Number: ");   scanf("%d", &A1.acno);
     printf("Enter Your Name: ");        scanf("%s", &A1.name);
     printf("Enter Amount: ");           scanf("%d", &A1.amount);
@@ -85,7 +87,7 @@ void depoist(){
     }
 }
 
-void withd(){
+void withdrawal(){
     int amt;
     printf("Enter an amount for withdrawl: ");  scanf("%d", &amt);
 
